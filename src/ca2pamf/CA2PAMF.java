@@ -15,6 +15,8 @@ public class CA2PAMF {
         ArraySearch(scan);
         // Task 2 Multiplication Table - Matrix Using 2D Array
         MultiTable(scan);
+        // Task 3: Diagonal Sum - Square Matrix Diagonal Sum
+        DiagSum(scan);
     }
     
         // Task 1: Array Search – Finding First Repeated Element   
@@ -86,5 +88,54 @@ public class CA2PAMF {
                 array[i][j] = (i + 1) * (j + 1);
             }
         }
+        // Printing multiplication table matrix
+        System.out.println("Multiplication Table Matrix:");
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                System.out.print(array[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
+
+    // Task 3: Diagonal Sum - Square Matrix Diagonal Sum
+    public static void DiagSum (Scanner scan)
+    {
+        System.out.println("=== Task 3: Diagonal Sum ===");
+        // Taking array size
+        System.out.print("Enter array size: ");
+        int size = scan.nextInt();
+        // Checking positive value
+        while (size <= 0)
+        {
+            System.out.println("Array size must be greater than 0.");
+            System.out.print("Enter array size: ");
+            size = scan.nextInt();
+        }
+        // Creating array
+        int[][] array = new int[size][size];
+        // Taking array elements
+        System.out.print("Enter array elements: ");
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                array[i][j] = scan.nextInt();
+            }
+        }
+        // Calculating diagonals sum
+        int diag1 = 0;
+        int diag2 = 0;
+        for (int i = 0; i < size; i++)
+        {
+            diag1 += array[i][i]; 
+            diag2 += array[i][size - 1 - i];
+        }
+        // Printing sum of both diagonals
+        System.out.println("Sum of diagonal#1: " +diag1);
+        System.out.println("Sum of diagonal#2: " +diag2);
+    }
+
 }
