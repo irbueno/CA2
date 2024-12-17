@@ -17,6 +17,8 @@ public class CA2PAMF {
         MultiTable(scan);
         // Task 3: Diagonal Sum - Square Matrix Diagonal Sum
         DiagSum(scan);
+        // Task 4: Traversal Spiral - Matrix Spiral Traversal
+        TravSpiral(scan);
     }
     
         // Task 1: Array Search – Finding First Repeated Element   
@@ -138,4 +140,34 @@ public class CA2PAMF {
         System.out.println("Sum of diagonal#2: " +diag2);
     }
 
+    // Task 4: Traversal Spiral - Matrix Spiral Traversal
+    public static void TravSpiral (Scanner scan)
+    {
+        System.out.println("=== Task 4: Traversal Spiral ===");
+        // Taking array size
+        System.out.print("Enter row size: ");
+        int rsize = scan.nextInt();
+        System.out.print("Enter column size: ");
+        int csize = scan.nextInt();
+        // Checking positive value
+        while (rsize <= 0 || csize <= 0)
+        {
+            System.out.println("Both sizes must be greater than 0.");
+            System.out.print("Enter row size: ");
+            rsize = scan.nextInt();
+            System.out.print("Enter column size: ");
+            csize = scan.nextInt();
+        }
+        // Creating array
+        int[][] array = new int[rsize][csize];
+        // Taking array elements
+        System.out.print("Enter array elements: ");
+        for (int i = 0; i < rsize; i++)
+        {
+            for (int j = 0; j < csize; j++)
+            {
+                array[i][j] = scan.nextInt();
+            }
+        }
+    }
 }
