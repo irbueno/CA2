@@ -19,6 +19,8 @@ public class CA2PAMF {
         DiagSum(scan);
         // Task 4: Traversal Spiral - Matrix Spiral Traversal
         TravSpiral(scan);
+        //Task 5: Bubble Sort - Array Sorting
+        BubSort(scan);
     }
     
         // Task 1: Array Search – Finding First Repeated Element   
@@ -168,6 +170,69 @@ public class CA2PAMF {
             {
                 array[i][j] = scan.nextInt();
             }
+        }
+        // Calculating & printing spiral traversal
+        int top = 0;
+        int bot = rsize - 1;
+        int left = 0;
+        int right = csize - 1;
+        System.out.print("Spiral Traversal: ");
+        while (top <= bot && left <= right)
+        {
+            // Traversing from Left to Right
+            for (int i = left; i <= right; i++)
+            {
+                System.out.print(array[top][i] + " ");
+            }
+            top++;
+            // Traversing from Top to Bot
+            for (int i = top; i <= bot; i++)
+            {
+                System.out.print(array[i][right] + " ");
+            }
+            right--;
+            // Traversing from Right to Left
+            if (top <= bot)
+            {
+                for (int i = right; i >= left; i--)
+                {
+                    System.out.print(array[bot][i] + " ");
+                }
+                bot--;
+            }
+            // Traversing from Bot to Top
+            if (left <= right)
+            {
+                for (int i = bot; i >= top; i--)
+                {
+                    System.out.print(array[i][left] + " ");
+                }
+                left++;
+            }
+        }
+    }
+
+    //Task 5: Bubble Sort - Array Sorting
+    public static void BubSort (Scanner scan)
+    {
+        System.out.println("\n=== Task 5: Bubble Sort ===");
+        // Taking array size
+        System.out.print("Enter array size: ");
+        int size = scan.nextInt();
+        // Checking positive value
+        while (size <= 0)
+        {
+            System.out.println("Array size must be greater than 0.");
+            System.out.print("Enter array size: ");
+            size = scan.nextInt();
+        }
+        // Creating array
+        int[] array = new int[size];
+        // Taking array elements
+        System.out.print("Enter the elements of the array: ");
+        for (int i = 0; i < size; i++)
+        {
+            array[i] = scan.nextInt();
         }
     }
 }
