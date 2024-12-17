@@ -9,7 +9,12 @@ import java.util.Scanner;
 
 public class CA2PAMF {
     public static void main(String[] args) {
-        // TODO code application logic here
+        //Adding scanner for data input
+        Scanner scan = new Scanner(System.in);
+        // Task 1: Array Search – Finding First Repeated Element
+        ArraySearch(scan);
+        // Task 2 Multiplication Table - Matrix Using 2D Array
+        MultiTable(scan);
     }
     
         // Task 1: Array Search – Finding First Repeated Element   
@@ -28,6 +33,58 @@ public class CA2PAMF {
         }
         // Creating array
         int[] array = new int[size];
+        // Taking array elements
+        System.out.print("Enter array elements: ");
+        for (int i = 0; i < size; i++)
+        {
+            array[i] = scan.nextInt();
+        }
+        // Finding first repeated element
+        int rep = -6; // "No-repetition" marker for printing
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = i + 1; j < size; j++)
+            {
+                if (array[i] == array[j])
+                {
+                    rep = array[i];
+                    break;
+                }
+            }
+        }
+        // Printing proper repeated element result
+        if (rep != -6)
+        {
+            System.out.println("First repeated element: " + rep);
+        } else
+        {
+            System.out.println("No repeated elements found.");
+        }
     }
-    
+
+    // Task 2 Multiplication Table - Matrix Using 2D Array
+    public static void MultiTable (Scanner scan)
+    {
+        System.out.println("=== Task 2: Multiplication Table ===");
+        // Taking array size
+        System.out.print("Enter array size: ");
+        int size = scan.nextInt();
+        // Checking positive value
+        while (size <= 0)
+        {
+            System.out.println("Array size must be greater than 0.");
+            System.out.print("Enter array size: ");
+            size = scan.nextInt();
+        }
+        // Creating array
+        int[][] array = new int[size][size];
+        // Populating array
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                array[i][j] = (i + 1) * (j + 1);
+            }
+        }
+    }
 }
