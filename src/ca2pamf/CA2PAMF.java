@@ -1,14 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package ca2pamf;
+//@author IBueno
+//GitHub repository: https://github.com/irbueno/CA2
+//Notes: I was having issues with github when creating the repository, apparently all is sorted
+//Notes: Not 100% sure if I was able to display the first repeated item all times for Task 1.
+//Notes: Same with Task 4 and 5, hopefully everything is printing correctly, hopefully.
 
 //Adding scanner for data input
 import java.util.Scanner;
 
-public class CA2PAMF {
-    public static void main(String[] args) {
+public class CA2PAMF
+{
+    public static void main(String[] args)
+    {
         //Adding scanner for data input
         Scanner scan = new Scanner(System.in);
         // Task 1: Array Search – Finding First Repeated Element
@@ -23,7 +26,7 @@ public class CA2PAMF {
         BubSort(scan);
     }
     
-        // Task 1: Array Search – Finding First Repeated Element   
+    // Task 1: Array Search – Finding First Repeated Element   
     public static void ArraySearch (Scanner scan)
     {
         System.out.println("=== Task 1: Array Search ===");
@@ -229,10 +232,52 @@ public class CA2PAMF {
         // Creating array
         int[] array = new int[size];
         // Taking array elements
-        System.out.print("Enter the elements of the array: ");
+        System.out.print("Enter array elements: ");
         for (int i = 0; i < size; i++)
         {
             array[i] = scan.nextInt();
         }
+        // Printing array before sorting
+        System.out.print("Array before sorting: ");
+        for(int i = 0; i < size; i++)
+        {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+        // Bubble sorting & swaping +counter
+        int asize = array.length;
+        boolean swap; // Setting first pass
+        int counter = 0;
+        for (int i = 0; i < asize - 1; i++)
+        {
+            swap = false; // Awaiting possible swap
+            for (int j = 0; j < asize - i - 1; j++)
+            {
+                // Changing to > for ascending sorting
+                if (array[j] > array[j + 1])
+                {
+                    // Swapping elements +counter up
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    counter++;
+                    swap = true; // Showing swap occured
+                }
+            }
+            // Checking if no swaps / Sorting break
+            if (!swap)
+            {
+                break;
+            }
+        }
+        // Printing array after sorting
+        System.out.print("Array before sorting: ");
+        for(int i = 0; i < size; i++)
+        {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println(); 
+        // Printing total swaps
+        System.out.println("Total number of swaps: " + counter);
     }
 }
